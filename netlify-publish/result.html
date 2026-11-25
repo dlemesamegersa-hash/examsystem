@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b50">
+  <meta name="description" content="Demonstration examination result and downloadable report for the National-level Ethiopian Education Platform.">
+  <title>Examination Result | National-level Ethiopian Education Platform</title>
+  <link rel="stylesheet" href="css/super-admin.css">
+  <link rel="stylesheet" href="css/result.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="js/result.js" defer></script>
+</head>
+<body>
+  <main class="result-container" id="resultContent" hidden>
+    <header class="result-header">
+      <a class="result-brand" href="student.html" aria-label="National-level Ethiopian Education Platform student dashboard">
+        <span class="result-logo" aria-hidden="true">N</span>
+        <span>National-level Ethiopian Education Platform</span>
+      </a>
+      <p class="result-kicker">DEMONSTRATION RESULT</p>
+      <h1>Examination Result Report</h1>
+      <p>Calculated from your submitted examination answers.</p>
+    </header>
+
+    <section class="student-profile" aria-label="Student information">
+      <div class="photo-column">
+        <div class="photo-frame">
+          <img id="studentPhoto" src="images/student-photo.jpg" alt="Student photo" hidden>
+          <div class="photo-placeholder" id="photoPlaceholder" aria-label="Student photo placeholder">CS</div>
+        </div>
+        <p class="photo-note" id="photoNote">Optional photo: <code>images/student-photo.jpg</code></p>
+      </div>
+      <div class="student-info">
+        <h2 id="studentName">Student Name</h2>
+        <p><strong>Roll Number:</strong> <span id="rollNumber"></span></p>
+        <p><strong>University:</strong> <span id="university"></span></p>
+        <p><strong>Department:</strong> <span id="department"></span></p>
+        <p><strong>Examination:</strong> <span id="examName"></span></p>
+        <p><strong>Exam Date:</strong> <span id="examDate"></span></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="performanceTitle">
+      <h2 class="section-title" id="performanceTitle">Examination Performance</h2>
+      <div class="result-grid">
+        <article class="result-box"><strong id="totalQuestions">0</strong><span>Total Questions</span></article>
+        <article class="result-box"><strong id="correctAnswers">0</strong><span>Correct Answers</span></article>
+        <article class="result-box"><strong id="wrongAnswers">0</strong><span>Wrong Answers</span></article>
+        <article class="result-box"><strong id="skippedQuestions">0</strong><span>Skipped Questions</span></article>
+        <article class="result-box"><strong id="totalMarks">0</strong><span>Total Marks</span></article>
+        <article class="result-box"><strong id="submissionType">-</strong><span>Submission Type</span></article>
+      </div>
+    </section>
+
+    <section class="total-result" aria-labelledby="finalResultTitle">
+      <h2 id="finalResultTitle">Final Examination Result</h2>
+      <p class="score"><strong id="obtainedMarks">0</strong><span>/</span><strong id="maximumMarks">0</strong></p>
+      <p class="percentage" id="percentage">0%</p>
+    </section>
+
+    <p class="demo-note">This is a frontend demonstration. Official results must be verified and stored by a trusted server.</p>
+    <div class="result-actions">
+      <button class="download-btn" id="downloadBtn" type="button">Download Result PDF</button>
+      <a class="back-btn" href="student.html">Back to Dashboard</a>
+    </div>
+  </main>
+
+  <main class="result-container no-result" id="noResult" hidden>
+    <div class="result-logo" aria-hidden="true">N</div>
+    <h1>No Examination Result</h1>
+    <p>Complete and submit an examination before opening its result report.</p>
+    <a class="back-btn" href="student.html">Back to Dashboard</a>
+  </main>
+</body>
+</html>

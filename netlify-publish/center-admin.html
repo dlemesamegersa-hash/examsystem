@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1f3a">
+  <meta name="description" content="National-level Ethiopian Education Platform dashboard for Examination Center Administrators.">
+  <title>National-level Ethiopian Education Platform | Center Administrator</title>
+  <link rel="stylesheet" href="css/super-admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/center-admin.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="National-level Ethiopian Education Platform center dashboard">
+        <span class="logo" aria-hidden="true">N</span>
+        <span>National-level Ethiopian Education Platform</span>
+      </a>
+
+      <p class="menu-label">CENTER MANAGEMENT</p>
+      <nav class="navigation" aria-label="Center navigation">
+        <a class="nav-link active" href="#dashboard" data-section="dashboard"><span aria-hidden="true">▦</span> Dashboard</a>
+        <a class="nav-link" href="#computers" data-section="computers"><span aria-hidden="true">▣</span> Computers &amp; Labs</a>
+        <a class="nav-link" href="#sessions" data-module="Exam Sessions"><span aria-hidden="true">▤</span> Exam Sessions</a>
+        <a class="nav-link" href="#attendance" data-section="attendance"><span aria-hidden="true">♙</span> Student Attendance</a>
+        <a class="nav-link" href="#invigilators" data-section="invigilators"><span aria-hidden="true">♟</span> Invigilators</a>
+        <a class="nav-link" href="#examinations" data-section="examinations"><span aria-hidden="true">▤</span> Examinations</a>
+        <a class="nav-link" href="#reports" data-module="Reports"><span aria-hidden="true">▥</span> Reports</a>
+        <a class="nav-link" href="#settings" data-module="Settings"><span aria-hidden="true">⚙</span> Settings</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="logout" id="logoutButton" type="button"><span aria-hidden="true">↪</span> Sign Out</button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div class="page-title">
+          <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+          <div>
+            <h2>Center Administrator</h2>
+            <p>Examination Center Management Overview</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="notification" id="notificationButton" type="button" aria-label="View notifications">
+            <span aria-hidden="true">♧</span>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="admin-profile">
+            <div class="avatar" aria-hidden="true">CA</div>
+            <div>
+              <strong>Center Admin</strong>
+              <small>Center Administrator</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="welcome-section" aria-labelledby="welcome-title">
+        <div>
+          <p class="eyebrow">Examination center overview</p>
+          <h1 id="welcome-title">Welcome back, Center Admin!</h1>
+          <p>Monitor computers, examination sessions and candidates.</p>
+          <p class="university-name"><strong>Center:</strong> Main Examination Center</p>
+        </div>
+        <button class="primary-button" id="reportButton" type="button"><span aria-hidden="true">↓</span> Export Report</button>
+      </section>
+
+      <section class="stats-grid" aria-label="Center statistics">
+        <article class="stat-card">
+          <div class="stat-icon blue" aria-hidden="true">▣</div>
+          <p>Total Computers</p>
+          <h2 id="computerCount">120</h2>
+          <small>Registered computers</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green" aria-hidden="true">✓</div>
+          <p>Available Computers</p>
+          <h2 id="availableComputerCount">108</h2>
+          <small>Ready for examinations</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon purple" aria-hidden="true">♙</div>
+          <p>Today's Candidates</p>
+          <h2 id="candidateCount">350</h2>
+          <small>Scheduled candidates</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon orange" aria-hidden="true">▤</div>
+          <p>Active Sessions</p>
+          <h2 id="sessionCount">3</h2>
+          <small>Current exam sessions</small>
+        </article>
+      </section>
+
+      <section class="content-grid" id="analytics" aria-label="Center analytics">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Center Analytics</h3>
+              <p>Candidate attendance and session activity</p>
+            </div>
+            <label class="visually-hidden" for="analyticsPeriod">Analytics period</label>
+            <select id="analyticsPeriod">
+              <option value="monthly">Last 6 months</option>
+              <option value="yearly">Year overview</option>
+            </select>
+          </div>
+          <div class="chart-container">
+            <canvas id="centerChart" role="img" aria-label="Line chart of present and absent candidates"></canvas>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Computer Status</h3>
+              <p>Current computer availability</p>
+            </div>
+          </div>
+          <div class="summary-item"><span>Total Computers</span><strong>120</strong></div>
+          <div class="summary-item"><span>Available</span><strong class="status-active">108</strong></div>
+          <div class="summary-item"><span>In Use</span><strong>3</strong></div>
+          <div class="summary-item"><span>Under Maintenance</span><strong>9</strong></div>
+          <div class="summary-item"><span>Laboratories</span><strong>4</strong></div>
+        </article>
+      </section>
+
+      <section class="panel table-panel" id="examinations">
+        <div class="panel-heading">
+          <div>
+            <h3>Upcoming Examinations</h3>
+            <p>Examinations assigned to this center</p>
+          </div>
+          <button class="outline-button" id="allExamsButton" type="button">View All</button>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Examination</th>
+                <th scope="col">University</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Candidates</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Computer Security</td>
+                <td>University A</td>
+                <td><time datetime="2026-11-20">20 Nov 2026</time></td>
+                <td>09:00 AM</td>
+                <td>120</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+              </tr>
+              <tr>
+                <td>Database Systems</td>
+                <td>University B</td>
+                <td><time datetime="2026-11-22">22 Nov 2026</time></td>
+                <td>10:00 AM</td>
+                <td>95</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+              </tr>
+              <tr>
+                <td>Software Engineering</td>
+                <td>University C</td>
+                <td><time datetime="2026-11-25">25 Nov 2026</time></td>
+                <td>02:00 PM</td>
+                <td>110</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-grid lower-grid">
+        <article class="panel" id="computers">
+          <div class="panel-heading">
+            <div>
+              <h3>Laboratory Overview</h3>
+              <p>Computer laboratory status</p>
+            </div>
+          </div>
+          <div class="summary-item"><span>Laboratory 01</span><strong>30 / 30 Ready</strong></div>
+          <div class="summary-item"><span>Laboratory 02</span><strong>28 / 30 Ready</strong></div>
+          <div class="summary-item"><span>Laboratory 03</span><strong>25 / 30 Ready</strong></div>
+          <div class="summary-item"><span>Laboratory 04</span><strong>25 / 30 Ready</strong></div>
+        </article>
+
+        <article class="panel quick-panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Quick Actions</h3>
+              <p>Common center operations</p>
+            </div>
+          </div>
+          <button class="quick-action" type="button" data-action="Register Computer">
+            <span class="quick-icon blue" aria-hidden="true">＋</span><span>Register Computer</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="Manage Laboratories">
+            <span class="quick-icon purple" aria-hidden="true">▣</span><span>Manage Laboratories</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="Record Attendance">
+            <span class="quick-icon green" aria-hidden="true">♙</span><span>Record Attendance</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="Assign Invigilator">
+            <span class="quick-icon orange" aria-hidden="true">♟</span><span>Assign Invigilator</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="Create Exam Session">
+            <span class="quick-icon blue" aria-hidden="true">▤</span><span>Create Exam Session</span><b aria-hidden="true">›</b>
+          </button>
+        </article>
+      </section>
+
+      <section class="panel table-panel" id="attendance">
+        <div class="panel-heading">
+          <div>
+            <h3>Student Attendance</h3>
+            <p>Today's examination candidate attendance</p>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Examination</th>
+                <th scope="col">Registered</th>
+                <th scope="col">Present</th>
+                <th scope="col">Absent</th>
+                <th scope="col">Attendance Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Computer Security</td>
+                <td>120</td>
+                <td>115</td>
+                <td>5</td>
+                <td>95.8%</td>
+              </tr>
+              <tr>
+                <td>Database Systems</td>
+                <td>95</td>
+                <td>90</td>
+                <td>5</td>
+                <td>94.7%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-grid lower-grid">
+        <article class="panel" id="invigilators">
+          <div class="panel-heading">
+            <div>
+              <h3>Invigilator Overview</h3>
+              <p>Center examination staff</p>
+            </div>
+          </div>
+          <div class="summary-item"><span>Total Invigilators</span><strong>18</strong></div>
+          <div class="summary-item"><span>Assigned Today</span><strong>12</strong></div>
+          <div class="summary-item"><span>Available</span><strong>6</strong></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Recent Activities</h3>
+              <p>Latest center operations</p>
+            </div>
+          </div>
+          <div class="activity">
+            <div class="activity-icon green" aria-hidden="true">✓</div>
+            <div>
+              <strong>Computer inspection completed</strong>
+              <p>Laboratory 01 was inspected.</p>
+              <small>Today, 08:30 AM</small>
+            </div>
+          </div>
+          <div class="activity">
+            <div class="activity-icon blue" aria-hidden="true">♙</div>
+            <div>
+              <strong>Attendance recorded</strong>
+              <p>Candidate attendance was updated.</p>
+              <small>Today, 09:00 AM</small>
+            </div>
+          </div>
+          <div class="activity">
+            <div class="activity-icon purple" aria-hidden="true">♟</div>
+            <div>
+              <strong>Invigilator assigned</strong>
+              <p>An invigilator was assigned to a session.</p>
+              <small>Yesterday, 03:20 PM</small>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="page-footer">© <span id="currentYear"></span> National-level Ethiopian Education Platform | Multi-University Online Examination System</footer>
+    </main>
+  </div>
+</body>
+</html>

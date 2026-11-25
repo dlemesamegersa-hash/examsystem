@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1f3a">
+  <meta name="description" content="Student examination dashboard for the National-level Ethiopian Education Platform.">
+  <title>Student Dashboard | National-level Ethiopian Education Platform</title>
+  <link rel="stylesheet" href="css/super-admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/student.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="National-level Ethiopian Education Platform student dashboard">
+        <span class="logo" aria-hidden="true">N</span>
+        <span>National-level Ethiopian Education Platform</span>
+      </a>
+      <p class="menu-label">STUDENT MENU</p>
+      <nav class="navigation" aria-label="Student navigation">
+        <a href="#dashboard" class="nav-link active" data-section="dashboard"><span aria-hidden="true">▦</span> Dashboard</a>
+        <a href="#profile" class="nav-link" data-section="profile"><span aria-hidden="true">♙</span> My Profile</a>
+        <a href="#examinations" class="nav-link" data-section="examinations"><span aria-hidden="true">▤</span> My Examinations</a>
+        <a href="#schedule" class="nav-link" data-section="schedule"><span aria-hidden="true">◷</span> Exam Schedule</a>
+        <a href="#results" class="nav-link" data-section="results"><span aria-hidden="true">▥</span> My Results</a>
+        <a href="#activities" class="nav-link" data-section="activities"><span aria-hidden="true">◴</span> Recent Activities</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button id="logoutBtn" class="logout" type="button"><span aria-hidden="true">↪</span> Sign Out</button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div class="page-title">
+          <button id="menuBtn" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+          <div>
+            <h2>Student Dashboard</h2>
+            <p>Welcome to your examination portal</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <div class="admin-profile">
+            <div class="avatar" aria-hidden="true">ST</div>
+            <div>
+              <strong>Student Name</strong>
+              <small>Roll Number: CS001</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="welcome-section" aria-labelledby="welcome-title">
+        <div>
+          <p class="eyebrow">Student portal</p>
+          <h1 id="welcome-title">Welcome, Student!</h1>
+          <p>Manage your examinations, schedule, and results.</p>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Examination overview">
+        <article class="stat-card">
+          <div class="stat-icon blue" aria-hidden="true">▤</div>
+          <p>Available Exams</p>
+          <h2>2</h2>
+          <small>Examinations available</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon purple" aria-hidden="true">◷</div>
+          <p>Upcoming Exams</p>
+          <h2>3</h2>
+          <small>Scheduled examinations</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green" aria-hidden="true">✓</div>
+          <p>Completed Exams</p>
+          <h2>5</h2>
+          <small>Examinations completed</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon orange" aria-hidden="true">▥</div>
+          <p>Results Published</p>
+          <h2>4</h2>
+          <small>Available examination results</small>
+        </article>
+      </section>
+
+      <section class="content-grid student-profile-grid">
+        <article class="panel" id="profile">
+          <div class="panel-heading">
+            <div>
+              <h3>Student Profile</h3>
+              <p>Your academic information</p>
+            </div>
+          </div>
+          <div class="summary-item"><span>Student Name</span><strong>Student Name</strong></div>
+          <div class="summary-item"><span>Roll Number</span><strong>CS001</strong></div>
+          <div class="summary-item"><span>University</span><strong>Sample University</strong></div>
+          <div class="summary-item"><span>Department</span><strong>Computer Science</strong></div>
+          <div class="summary-item"><span>Academic Year</span><strong>2026</strong></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Examination Information</h3>
+              <p>Current access and registration status</p>
+            </div>
+          </div>
+          <div class="summary-item"><span>Student Status</span><strong class="status-active">Active</strong></div>
+          <div class="summary-item"><span>Registration</span><strong>Completed</strong></div>
+          <div class="summary-item"><span>Examination Access</span><strong>Authorized</strong></div>
+          <button class="primary-button profile-action" id="viewProfileBtn" type="button">View Profile</button>
+        </article>
+      </section>
+
+      <section class="panel table-panel" id="examinations">
+        <div class="panel-heading">
+          <div>
+            <h3>Available Examinations</h3>
+            <p>Examinations available to you</p>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Exam Name</th>
+                <th scope="col">Course</th>
+                <th scope="col">Date</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mid Examination</td>
+                <td>Computer Security</td>
+                <td><time datetime="2026-11-20">Nov 20, 2026</time></td>
+                <td>60 Minutes</td>
+                <td><span class="status scheduled">Available</span></td>
+                <td><button class="primary-button start-exam-btn" type="button">Start Exam</button></td>
+              </tr>
+              <tr>
+                <td>Final Examination</td>
+                <td>Database Systems</td>
+                <td><time datetime="2026-11-25">Nov 25, 2026</time></td>
+                <td>90 Minutes</td>
+                <td><span class="status pending">Upcoming</span></td>
+                <td><button class="secondary-button" type="button" disabled>Not Available</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel table-panel" id="schedule">
+        <div class="panel-heading">
+          <div>
+            <h3>Examination Schedule</h3>
+            <p>Your upcoming examination timetable</p>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Course</th>
+                <th scope="col">Examination Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Center</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Computer Security</td>
+                <td><time datetime="2026-11-20">Nov 20, 2026</time></td>
+                <td>09:00 AM</td>
+                <td>Main Examination Center</td>
+              </tr>
+              <tr>
+                <td>Database Systems</td>
+                <td><time datetime="2026-11-25">Nov 25, 2026</time></td>
+                <td>02:00 PM</td>
+                <td>Main Examination Center</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel table-panel" id="results">
+        <div class="panel-heading">
+          <div>
+            <h3>My Examination Results</h3>
+            <p>Published marks and result documents</p>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Course</th>
+                <th scope="col">Total Marks</th>
+                <th scope="col">Obtained Marks</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Result PDF</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Introduction to Programming</td>
+                <td>100</td>
+                <td>85</td>
+                <td>A</td>
+                <td><button class="primary-button result-btn" type="button">Download PDF</button></td>
+              </tr>
+              <tr>
+                <td>Computer Architecture</td>
+                <td>100</td>
+                <td>78</td>
+                <td>B</td>
+                <td><button class="primary-button result-btn" type="button">Download PDF</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel activity-panel" id="activities">
+        <div class="panel-heading">
+          <div>
+            <h3>Recent Activities</h3>
+            <p>Your recent portal activity</p>
+          </div>
+        </div>
+        <ul class="activity-list" id="activityList">
+          <li>Student logged into the dashboard.</li>
+          <li>Examination schedule viewed.</li>
+          <li>Results checked.</li>
+        </ul>
+      </section>
+
+      <footer class="page-footer">© <span id="currentYear"></span> National-level Ethiopian Education Platform | Multi-University Online Examination System</footer>
+    </main>
+  </div>
+</body>
+</html>

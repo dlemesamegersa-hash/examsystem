@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1f3a">
+  <meta name="description" content="National-level Ethiopian Education Platform dashboard for invigilators.">
+  <title>Invigilator Dashboard | National-level Ethiopian Education Platform</title>
+  <link rel="stylesheet" href="css/super-admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/invigilator.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="National-level Ethiopian Education Platform invigilator dashboard">
+        <span class="logo" aria-hidden="true">N</span>
+        <span>National-level Ethiopian Education Platform</span>
+      </a>
+      <p class="menu-label">EXAMINATION MENU</p>
+      <nav class="navigation" aria-label="Invigilator navigation">
+        <a href="#dashboard" class="nav-link active" data-section="dashboard"><span aria-hidden="true">▦</span> Dashboard</a>
+        <a href="#assigned-exams" class="nav-link" data-section="assigned-exams"><span aria-hidden="true">▤</span> Assigned Examinations</a>
+        <a href="#sessions" class="nav-link" data-section="sessions"><span aria-hidden="true">◷</span> Exam Sessions</a>
+        <a href="#attendance" class="nav-link" data-section="attendance"><span aria-hidden="true">♙</span> Student Attendance</a>
+        <a href="#incidents" class="nav-link" data-section="incidents"><span aria-hidden="true">⚑</span> Report Incident</a>
+        <a href="#reports" class="nav-link" data-section="reports"><span aria-hidden="true">▥</span> Reports</a>
+        <a href="#profile" class="nav-link" data-section="profile"><span aria-hidden="true">♙</span> My Profile</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button id="logoutBtn" class="logout" type="button"><span aria-hidden="true">↪</span> Sign Out</button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div class="page-title">
+          <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+          <div>
+            <h2>Invigilator Dashboard</h2>
+            <p>Welcome back! Manage your assigned examination sessions.</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <div class="admin-profile">
+            <div class="avatar" aria-hidden="true">IN</div>
+            <div>
+              <strong>Invigilator</strong>
+              <small>Examination Staff</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="welcome-section" aria-labelledby="welcome-title">
+        <div>
+          <p class="eyebrow">Examination monitoring</p>
+          <h1 id="welcome-title">Your examination overview</h1>
+          <p>View your assignments and manage student attendance.</p>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Invigilator statistics">
+        <article class="stat-card">
+          <div class="stat-icon blue" aria-hidden="true">▤</div>
+          <p>Assigned Exams</p>
+          <h2>8</h2>
+          <small>Examinations assigned to you</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon purple" aria-hidden="true">◷</div>
+          <p>Today's Sessions</p>
+          <h2>3</h2>
+          <small>Scheduled for today</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green" aria-hidden="true">♙</div>
+          <p>Registered Students</p>
+          <h2>350</h2>
+          <small>Across assigned sessions</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon orange" aria-hidden="true">▶</div>
+          <p>Active Sessions</p>
+          <h2>1</h2>
+          <small>Currently in progress</small>
+        </article>
+      </section>
+
+      <section class="panel table-panel" id="assigned-exams">
+        <div class="panel-heading">
+          <div>
+            <h3>Assigned Examinations</h3>
+            <p>Your examination assignments</p>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Exam</th>
+                <th scope="col">Course</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Center</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Final Examination</td>
+                <td>Computer Security</td>
+                <td><time datetime="2026-11-18">18 Nov 2026</time></td>
+                <td>09:00 AM</td>
+                <td>Lab 01</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+                <td><button class="action-btn" type="button" data-action="view">View</button></td>
+              </tr>
+              <tr>
+                <td>Mid Examination</td>
+                <td>Database Systems</td>
+                <td><time datetime="2026-11-18">18 Nov 2026</time></td>
+                <td>02:00 PM</td>
+                <td>Lab 02</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+                <td><button class="action-btn" type="button" data-action="view">View</button></td>
+              </tr>
+              <tr>
+                <td>Final Examination</td>
+                <td>Operating Systems</td>
+                <td><time datetime="2026-11-20">20 Nov 2026</time></td>
+                <td>09:00 AM</td>
+                <td>Lab 01</td>
+                <td><span class="status pending">Upcoming</span></td>
+                <td><button class="action-btn" type="button" data-action="view">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel table-panel" id="sessions">
+        <div class="panel-heading">
+          <div>
+            <h3>Today's Examination Sessions</h3>
+            <p>Monitor scheduled and in-progress sessions</p>
+          </div>
+        </div>
+        <div class="session-grid">
+          <article class="session-card">
+            <div class="session-card-heading">
+              <h3>Computer Security</h3>
+              <span class="status scheduled">Scheduled</span>
+            </div>
+            <p><strong>Time:</strong> 09:00 AM – 11:00 AM</p>
+            <p><strong>Center:</strong> Lab 01</p>
+            <p><strong>Candidates:</strong> 120</p>
+            <button class="primary-button session-action" type="button" data-action="start">Start Session</button>
+          </article>
+          <article class="session-card">
+            <div class="session-card-heading">
+              <h3>Database Systems</h3>
+              <span class="status pending">Upcoming</span>
+            </div>
+            <p><strong>Time:</strong> 02:00 PM – 04:00 PM</p>
+            <p><strong>Center:</strong> Lab 02</p>
+            <p><strong>Candidates:</strong> 100</p>
+            <button class="outline-button session-action" type="button" data-action="view">View Session</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel table-panel" id="attendance">
+        <div class="panel-heading">
+          <div>
+            <h3>Student Attendance</h3>
+            <p>Candidate attendance for Computer Security</p>
+          </div>
+          <button class="primary-button" id="attendanceBtn" type="button">Record Attendance</button>
+        </div>
+        <div class="table-scroll">
+          <table id="attendanceTable">
+            <thead>
+              <tr>
+                <th scope="col">Roll Number</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Examination</th>
+                <th scope="col">Center</th>
+                <th scope="col">Attendance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CS001</td>
+                <td>Student One</td>
+                <td>Computer Security</td>
+                <td>Lab 01</td>
+                <td><span class="status scheduled">Present</span></td>
+              </tr>
+              <tr>
+                <td>CS002</td>
+                <td>Student Two</td>
+                <td>Computer Security</td>
+                <td>Lab 01</td>
+                <td><span class="status pending">Absent</span></td>
+              </tr>
+              <tr>
+                <td>CS003</td>
+                <td>Student Three</td>
+                <td>Computer Security</td>
+                <td>Lab 01</td>
+                <td><span class="status scheduled">Present</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel table-panel" id="incidents">
+        <div class="panel-heading">
+          <div>
+            <h3>Report Examination Incident</h3>
+            <p>Submit an incident report for the examination team</p>
+          </div>
+        </div>
+        <form id="incidentForm" class="incident-form">
+          <label for="examName">Examination</label>
+          <select id="examName" name="examName" required>
+            <option value="" selected disabled>Select Examination</option>
+            <option>Computer Security</option>
+            <option>Database Systems</option>
+            <option>Operating Systems</option>
+          </select>
+
+          <label for="incidentType">Incident Type</label>
+          <select id="incidentType" name="incidentType" required>
+            <option value="" selected disabled>Select Incident Type</option>
+            <option>Technical Problem</option>
+            <option>Student Misconduct</option>
+            <option>Network Problem</option>
+            <option>Other</option>
+          </select>
+
+          <label for="incidentDescription">Description</label>
+          <textarea id="incidentDescription" name="incidentDescription" rows="4" placeholder="Describe the incident..." required></textarea>
+          <button type="submit" class="primary-button">Submit Incident Report</button>
+        </form>
+      </section>
+
+      <section class="panel table-panel" id="reports">
+        <div class="panel-heading">
+          <div>
+            <h3>Examination Reports</h3>
+            <p>Export the demonstration attendance records for review.</p>
+          </div>
+          <button class="primary-button" id="reportBtn" type="button">Export Attendance CSV</button>
+        </div>
+      </section>
+
+      <section class="panel profile-panel" id="profile">
+        <div class="panel-heading">
+          <div>
+            <h3>My Profile</h3>
+            <p>Assigned invigilator information</p>
+          </div>
+        </div>
+        <div class="summary-item"><span>Role</span><strong>Invigilator</strong></div>
+        <div class="summary-item"><span>Assigned Center</span><strong>Main Examination Center</strong></div>
+        <div class="summary-item"><span>Status</span><strong class="status-active">Active</strong></div>
+      </section>
+
+      <footer class="page-footer">© <span id="currentYear"></span> National-level Ethiopian Education Platform | Multi-University Online Examination System</footer>
+    </main>
+  </div>
+</body>
+</html>

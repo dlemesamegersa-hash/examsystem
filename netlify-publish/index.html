@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b50">
+  <meta name="description" content="Plan class schedules, view examinations, and access secure online exams with the National-level Ethiopian Education Platform.">
+  <title>National-level Ethiopian Education Platform | Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="National-level Ethiopian Education Platform home">
+        <span class="logo" aria-hidden="true">N</span>
+        <span class="brand-name">National-level Ethiopian Education Platform</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#schedules">View Schedules</a>
+        <a class="nav-activate" href="#activate-account">Activate Account</a>
+        <a href="student-registration-system/index.php">Student Registration</a>
+        <a class="nav-login" href="#login">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"></p>
+          <h1>Master Your Academic Schedules </h1>
+          <p class="hero-description">
+            Keep class schedules, examinations, and online assessments organized in one place.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#login" data-role-shortcut="student">Class Schedule</a>
+            <a class="button button-outline" href="#login" data-role-shortcut="student">Exam Schedule</a>
+            <a class="button button-outline" href="#login">Online Exam Login</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="National-level Ethiopian Education Platform benefits">
+      <div class="container benefits-grid">
+        <article class="benefit">
+          <strong>100%</strong>
+          <span>Conflict-free planning</span>
+        </article>
+        <article class="benefit">
+          <strong>Instant</strong>
+          <span>Schedule access</span>
+        </article>
+        <article class="benefit">
+          <strong>Secure</strong>
+          <span>Online examinations</span>
+        </article>
+        <article class="benefit">
+          <strong>Direct</strong>
+          <span>Results access</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section difference-section" id="difference">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow-dark">A unified national education platform</p>
+          <h2>Everything for a smoother exam experience.</h2>
+          <p>Find key academic tools quickly, from schedule planning to online examination access.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-mark" aria-hidden="true">01</span>
+            <h3>One-click access</h3>
+            <p>Jump directly to the sign-in form with your portal role selected.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-mark" aria-hidden="true">02</span>
+            <h3>Collision Guard</h3>
+            <p>Keep schedule conflicts in view while planning examinations.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-mark" aria-hidden="true">03</span>
+            <h3>Online examinations</h3>
+            <p>Sign in to reach the examination portal for your role.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-mark" aria-hidden="true">04</span>
+            <h3>Read and print</h3>
+            <p>Open your timetable in a clear format for reading or printing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="about">
+      <div class="container section-heading">
+        <p class="eyebrow eyebrow-dark">About Us</p>
+        <h2>Academic planning, made clearer.</h2>
+        <p>
+          The National-level Ethiopian Education Platform brings class schedules, examination dates, and online exam access together
+          so students can stay informed and prepared.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section schedules-section" id="schedules">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow-dark">Student access</p>
+          <h2>View your schedule or take an exam.</h2>
+          <p>Choose a schedule or sign in to your online examination account. Schedule access uses your student account.</p>
+        </div>
+
+        <div class="schedule-login-grid">
+          <section class="schedule-access-card" aria-labelledby="scheduleAccessTitle">
+            <p class="eyebrow eyebrow-dark">View Schedule</p>
+            <h3 id="scheduleAccessTitle">Choose a schedule</h3>
+            <p class="schedule-access-description">Sign in with your student account to see your academic information.</p>
+            <div class="schedule-options">
+              <a class="schedule-option" href="#login" data-role-shortcut="student">
+                <span class="schedule-option-icon" aria-hidden="true">01</span>
+                <span class="schedule-option-copy">
+                  <strong>Class Schedule</strong>
+                  <span>View your classes and timetable</span>
+                </span>
+                <span class="schedule-option-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="schedule-option" href="#login" data-role-shortcut="student">
+                <span class="schedule-option-icon" aria-hidden="true">02</span>
+                <span class="schedule-option-copy">
+                  <strong>Exam Schedule</strong>
+                  <span>Check your upcoming examinations</span>
+                </span>
+                <span class="schedule-option-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+            <p class="schedule-access-note">Selecting either option takes you to student login.</p>
+          </section>
+
+          <div class="login-card" id="login" aria-label="Online exam login">
+            <div class="login-card-heading">
+              <p class="eyebrow eyebrow-dark">Online Exam Login</p>
+              <h3>Sign in to your account</h3>
+              <p>Use your username or roll number and select your role to continue.</p>
+            </div>
+            <form id="loginForm">
+              <label for="username">Username / Roll Number</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username or roll number"
+                autocomplete="username"
+                required
+              >
+
+              <label for="password">Password</label>
+              <div class="password-box">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                >
+                <button type="button" id="togglePassword" aria-label="Show password" aria-pressed="false">Show</button>
+              </div>
+
+              <label for="role">Select Your Role</label>
+              <select id="role" name="role" required>
+                <option value="" selected disabled>Choose your role</option>
+                <option value="super_admin">Super Administrator</option>
+                <option value="university_admin">University Administrator</option>
+                <option value="center_admin">Center Administrator</option>
+                <option value="invigilator">Invigilator</option>
+                <option value="student">Student</option>
+              </select>
+
+              <div class="form-options">
+                <label class="remember" for="remember">
+                  <input type="checkbox" id="remember" name="remember">
+                  <span>Remember me</span>
+                </label>
+                <a href="#" id="forgotPassword">Forgot password?</a>
+              </div>
+
+              <button type="submit" class="login-button">Login</button>
+            </form>
+
+            <p class="security">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="5" y="10" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              Secure Online Examination System
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section portal-section" id="portals">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow eyebrow-dark">Role-based portals</p>
+          <h2>Your dashboard, one click away.</h2>
+          <p>Choose your role to preselect it on the login form. Sign-in is still required to open a dashboard.</p>
+        </div>
+        <div class="portal-grid">
+          <a class="portal-card" href="#login" data-role-shortcut="super_admin">
+            <span>Super Administrator</span><strong>Open portal <span aria-hidden="true">→</span></strong>
+          </a>
+          <a class="portal-card" href="#login" data-role-shortcut="university_admin">
+            <span>University Administrator</span><strong>Open portal <span aria-hidden="true">→</span></strong>
+          </a>
+          <a class="portal-card" href="#login" data-role-shortcut="center_admin">
+            <span>Center Administrator</span><strong>Open portal <span aria-hidden="true">→</span></strong>
+          </a>
+          <a class="portal-card" href="#login" data-role-shortcut="invigilator">
+            <span>Invigilator</span><strong>Open portal <span aria-hidden="true">→</span></strong>
+          </a>
+          <a class="portal-card" href="#login" data-role-shortcut="student">
+            <span>Student</span><strong>Open portal <span aria-hidden="true">→</span></strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="activation-section" id="activate-account">
+      <div class="container activation-inner">
+        <div>
+          <p class="eyebrow">New to the National-level Ethiopian Education Platform?</p>
+          <h2>Request account activation</h2>
+          <p>Send your details to your university or examination center administrator to request access.</p>
+        </div>
+        <a class="button button-light" href="#activationForm">Open activation form</a>
+      </div>
+      <div class="container activation-form-container">
+        <form class="activation-card" id="activationForm">
+          <div class="request-fields">
+            <div class="request-field">
+              <label for="activationName">Full name</label>
+              <input type="text" id="activationName" name="activationName" autocomplete="name" required>
+            </div>
+            <div class="request-field">
+              <label for="activationUsername">Username / Roll Number</label>
+              <input type="text" id="activationUsername" name="activationUsername" required>
+            </div>
+            <div class="request-field">
+              <label for="activationRole">Portal role</label>
+              <select id="activationRole" name="activationRole" required>
+                <option value="" selected disabled>Choose your role</option>
+                <option value="Super Administrator">Super Administrator</option>
+                <option value="University Administrator">University Administrator</option>
+                <option value="Center Administrator">Center Administrator</option>
+                <option value="Invigilator">Invigilator</option>
+                <option value="Student">Student</option>
+              </select>
+            </div>
+            <div class="request-field">
+              <label for="activationEmail">Administrator email address</label>
+              <input type="email" id="activationEmail" name="activationEmail" placeholder="Enter your university or center administrator email" required>
+            </div>
+          </div>
+          <div class="request-submit">
+            <p>This opens your email app with an activation request. Your information is not submitted to or stored by the National-level Ethiopian Education Platform.</p>
+            <button class="button button-light" type="submit">Request Activation</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <p class="eyebrow eyebrow-dark">Contact Us</p>
+          <h2>Contact the right office.</h2>
+          <p>Send a schedule request to your schedule office or department head using their official email address.</p>
+        </div>
+        <a href="#requestForm">Send a request <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="container request-container">
+        <form class="request-card" id="requestForm">
+          <div class="request-fields">
+            <div class="request-field">
+              <label for="requestOffice">Send to</label>
+              <select id="requestOffice" name="requestOffice" required>
+                <option value="Schedule Office">Schedule Office</option>
+                <option value="Department Head">Department Head</option>
+              </select>
+            </div>
+            <div class="request-field">
+              <label for="recipientEmail">Office email address</label>
+              <input type="email" id="recipientEmail" name="recipientEmail" placeholder="name@obu.edu" autocomplete="email" required>
+            </div>
+            <div class="request-field request-message">
+              <label for="requestMessage">Your request</label>
+              <textarea id="requestMessage" name="requestMessage" rows="4" maxlength="1500" placeholder="Describe your schedule question or request." required></textarea>
+            </div>
+          </div>
+          <div class="request-submit">
+            <p>Opens your email app with a prepared message. The National-level Ethiopian Education Platform does not send or store this request.</p>
+            <button class="button button-primary" type="submit">Send Request</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#home" aria-label="National-level Ethiopian Education Platform home">
+        <span class="logo" aria-hidden="true">N</span>
+        <span class="brand-name">National-level Ethiopian Education Platform</span>
+      </a>
+      <p>Developed by: Lemesa Megersa</p>
+      <span id="currentYear" hidden></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/login.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

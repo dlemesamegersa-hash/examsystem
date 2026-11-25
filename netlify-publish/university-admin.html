@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1f3a">
+  <meta name="description" content="National-level Ethiopian Education Platform dashboard for University Administrators.">
+  <title>National-level Ethiopian Education Platform | University Administrator</title>
+  <link rel="stylesheet" href="css/super-admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/university-admin.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="National-level Ethiopian Education Platform university dashboard">
+        <span class="logo" aria-hidden="true">N</span>
+        <span>National-level Ethiopian Education Platform</span>
+      </a>
+
+      <p class="menu-label">UNIVERSITY MENU</p>
+      <nav class="navigation" aria-label="University navigation">
+        <a class="nav-link active" href="#dashboard" data-section="dashboard"><span aria-hidden="true">▦</span> Dashboard</a>
+        <a class="nav-link" href="#departments" data-section="departments"><span aria-hidden="true">▣</span> Departments</a>
+        <a class="nav-link" href="#courses" data-module="Courses"><span aria-hidden="true">▤</span> Courses</a>
+        <a class="nav-link" href="#students" data-module="Students"><span aria-hidden="true">♙</span> Students</a>
+        <a class="nav-link" href="#examinations" data-section="examinations"><span aria-hidden="true">▤</span> Examinations</a>
+        <a class="nav-link" href="#centers" data-module="Examination Centers"><span aria-hidden="true">⌖</span> Examination Centers</a>
+        <a class="nav-link" href="#results" data-module="Results"><span aria-hidden="true">◷</span> Results</a>
+        <a class="nav-link" href="#reports" data-module="Reports"><span aria-hidden="true">▥</span> Reports</a>
+        <a class="nav-link" href="#settings" data-module="Settings"><span aria-hidden="true">⚙</span> Settings</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="logout" id="logoutButton" type="button"><span aria-hidden="true">↪</span> Sign Out</button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div class="page-title">
+          <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+          <div>
+            <h2>University Administrator</h2>
+            <p>University Management Overview</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="notification" id="notificationButton" type="button" aria-label="View notifications">
+            <span aria-hidden="true">♧</span>
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="admin-profile">
+            <div class="avatar" aria-hidden="true">UA</div>
+            <div>
+              <strong>University Admin</strong>
+              <small>University Administrator</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="welcome-section" aria-labelledby="welcome-title">
+        <div>
+          <p class="eyebrow">University overview</p>
+          <h1 id="welcome-title">Welcome back, University Admin!</h1>
+          <p>Manage your university's students, courses and examinations.</p>
+          <p class="university-name"><strong>University:</strong> Example University</p>
+        </div>
+        <button class="primary-button" id="reportButton" type="button"><span aria-hidden="true">↓</span> Export Report</button>
+      </section>
+
+      <section class="stats-grid" aria-label="University statistics">
+        <article class="stat-card">
+          <div class="stat-icon blue" aria-hidden="true">▣</div>
+          <p>Total Departments</p>
+          <h2 id="departmentCount">12</h2>
+          <small>University departments</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon purple" aria-hidden="true">▤</div>
+          <p>Total Courses</p>
+          <h2 id="courseCount">85</h2>
+          <small>Registered courses</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green" aria-hidden="true">♙</div>
+          <p>Registered Students</p>
+          <h2 id="studentCount">4,250</h2>
+          <small>Across all departments</small>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon orange" aria-hidden="true">▤</div>
+          <p>Active Examinations</p>
+          <h2 id="examCount">8</h2>
+          <small>Current examination sessions</small>
+        </article>
+      </section>
+
+      <section class="content-grid" id="analytics" aria-label="University analytics">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>University Analytics</h3>
+              <p>Student registration and examination activity</p>
+            </div>
+            <label class="visually-hidden" for="analyticsPeriod">Analytics period</label>
+            <select id="analyticsPeriod">
+              <option value="monthly">Last 6 months</option>
+              <option value="yearly">Year overview</option>
+            </select>
+          </div>
+          <div class="chart-container">
+            <canvas id="universityChart" role="img" aria-label="Line chart of student registrations and examinations"></canvas>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h3>University Summary</h3>
+              <p>Academic overview</p>
+            </div>
+          </div>
+          <div class="summary-item"><span>Active Departments</span><strong>12</strong></div>
+          <div class="summary-item"><span>Active Courses</span><strong>80</strong></div>
+          <div class="summary-item"><span>Active Students</span><strong>4,100</strong></div>
+          <div class="summary-item"><span>Examination Centers</span><strong>6</strong></div>
+          <div class="summary-item"><span>Pending Results</span><strong>3</strong></div>
+        </article>
+      </section>
+
+      <section class="panel table-panel" id="examinations">
+        <div class="panel-heading">
+          <div>
+            <h3>Upcoming Examinations</h3>
+            <p>Scheduled examinations in your university</p>
+          </div>
+          <button class="outline-button" id="allExamsButton" type="button">View All</button>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Examination</th>
+                <th scope="col">Department</th>
+                <th scope="col">Course</th>
+                <th scope="col">Date</th>
+                <th scope="col">Students</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Computer Security</td>
+                <td>Computer Science</td>
+                <td>CS401</td>
+                <td><time datetime="2026-11-20">20 Nov 2026</time></td>
+                <td>120</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+              </tr>
+              <tr>
+                <td>Database Systems</td>
+                <td>Computer Science</td>
+                <td>CS302</td>
+                <td><time datetime="2026-11-22">22 Nov 2026</time></td>
+                <td>95</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+              </tr>
+              <tr>
+                <td>Software Engineering</td>
+                <td>Information Technology</td>
+                <td>IT304</td>
+                <td><time datetime="2026-11-25">25 Nov 2026</time></td>
+                <td>110</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td>Compiler Design</td>
+                <td>Computer Science</td>
+                <td>CS405</td>
+                <td><time datetime="2026-11-28">28 Nov 2026</time></td>
+                <td>80</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-grid lower-grid">
+        <article class="panel" id="departments">
+          <div class="panel-heading">
+            <div>
+              <h3>Department Overview</h3>
+              <p>Student distribution by department</p>
+            </div>
+          </div>
+          <div class="summary-item"><span>Computer Science</span><strong>850 Students</strong></div>
+          <div class="summary-item"><span>Information Technology</span><strong>720 Students</strong></div>
+          <div class="summary-item"><span>Electrical Engineering</span><strong>680 Students</strong></div>
+          <div class="summary-item"><span>Accounting</span><strong>600 Students</strong></div>
+          <div class="summary-item"><span>Other Departments</span><strong>1,400 Students</strong></div>
+        </article>
+
+        <article class="panel quick-panel">
+          <div class="panel-heading">
+            <div>
+              <h3>Quick Actions</h3>
+              <p>Frequently used university operations</p>
+            </div>
+          </div>
+          <button class="quick-action" type="button" data-action="Register Student">
+            <span class="quick-icon blue" aria-hidden="true">♙</span><span>Register Student</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="Add Department">
+            <span class="quick-icon purple" aria-hidden="true">▣</span><span>Add Department</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="Add Course">
+            <span class="quick-icon green" aria-hidden="true">▤</span><span>Add Course</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="Create Examination">
+            <span class="quick-icon orange" aria-hidden="true">＋</span><span>Create Examination</span><b aria-hidden="true">›</b>
+          </button>
+          <button class="quick-action" type="button" data-action="View Results">
+            <span class="quick-icon blue" aria-hidden="true">▥</span><span>View Results</span><b aria-hidden="true">›</b>
+          </button>
+        </article>
+      </section>
+
+      <section class="panel activity-panel" id="activities">
+        <div class="panel-heading">
+          <div>
+            <h3>Recent Activities</h3>
+            <p>Latest university administration activities</p>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon blue" aria-hidden="true">＋</div>
+          <div>
+            <strong>New student registered</strong>
+            <p>A new student was added to Computer Science.</p>
+            <small>Today, 09:30 AM</small>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon green" aria-hidden="true">✓</div>
+          <div>
+            <strong>Examination scheduled</strong>
+            <p>Computer Security examination was scheduled.</p>
+            <small>Today, 08:15 AM</small>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon purple" aria-hidden="true">▤</div>
+          <div>
+            <strong>Course updated</strong>
+            <p>Database Systems course information was updated.</p>
+            <small>Yesterday, 03:20 PM</small>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer">© <span id="currentYear"></span> National-level Ethiopian Education Platform | Multi-University Online Examination System</footer>
+    </main>
+  </div>
+</body>
+</html>

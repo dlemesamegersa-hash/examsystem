@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b50">
+  <meta name="description" content="Computer Security online examination demo for the National-level Ethiopian Education Platform.">
+  <title>Online Examination | National-level Ethiopian Education Platform</title>
+  <link rel="stylesheet" href="css/super-admin.css">
+  <link rel="stylesheet" href="css/exam.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/exam.js" defer></script>
+</head>
+<body>
+  <main class="exam-container" id="examApp">
+    <header class="exam-header">
+      <a class="exam-brand" href="student.html" aria-label="Return to the National-level Ethiopian Education Platform student dashboard">
+        <span class="exam-brand-mark" aria-hidden="true">N</span>
+        <span>National-level Ethiopian Education Platform</span>
+      </a>
+      <div class="exam-heading">
+        <h1>Computer Security Examination</h1>
+        <p>Student Roll Number: CS001 <span aria-hidden="true">·</span> Duration: 30 Minutes</p>
+      </div>
+      <div class="timer-wrap">
+        <span class="timer-label">Time remaining</span>
+        <time class="timer" id="timer" role="timer" aria-live="off">30:00</time>
+      </div>
+    </header>
+
+    <div class="exam-notice" role="status">
+      Your answers save automatically in this browser. The timer continues if you refresh. This is a demonstration; exam timing and results are not server-verified.
+    </div>
+
+    <div class="exam-layout">
+      <section class="question-card" aria-labelledby="questionTitle">
+        <div class="question-meta">
+          <span class="question-label">Question</span>
+          <span id="questionProgress">1 of 5</span>
+        </div>
+        <h2 id="questionTitle">Question 1 of 5</h2>
+        <p class="question-text" id="questionText"></p>
+        <div id="optionsContainer" class="options-container"></div>
+        <div class="exam-controls">
+          <button class="secondary-btn" id="previousBtn" type="button">Previous</button>
+          <button class="primary-btn" id="nextBtn" type="button">Next</button>
+        </div>
+      </section>
+
+      <aside class="navigation-card" aria-labelledby="navigationTitle">
+        <h2 id="navigationTitle">Question Navigation</h2>
+        <p>Choose a question number to go directly to it.</p>
+        <div class="question-buttons" id="questionNavigation" aria-label="Questions"></div>
+        <p class="answered-count" id="answeredCount" aria-live="polite">Answered: 0 / 5</p>
+        <div class="navigation-legend">
+          <span><i class="legend-current" aria-hidden="true"></i> Current</span>
+          <span><i class="legend-answered" aria-hidden="true"></i> Answered</span>
+        </div>
+        <button class="primary-btn submit-btn" id="submitBtn" type="button">Submit Examination</button>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
